@@ -1,7 +1,8 @@
-package org.example.kato.entities.media;
+package org.example.kato.entities.user;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Builder
 @Entity
 @Table(name = "profile_medias")
 public class ProfileMedia {
@@ -24,4 +26,12 @@ public class ProfileMedia {
 
     @Column(name = "file_name", nullable = false)
     private String fileName;
+
+    // RELATIONAL MAPPINGS
+
+    // ONE TO ONE: Profile - ProfileMedia (Profile Picture)
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
 }

@@ -3,6 +3,7 @@ package org.example.kato.entities.user;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,6 +13,7 @@ import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Data
 @Entity
 @Table(name = "users")
@@ -45,4 +47,11 @@ public class User {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+
+    // RELATIONAL MAPPINGS
+
+    // ONE TO ONE: User - Profile
+
+    @OneToOne(mappedBy = "user")
+    private Profile profile;
 }
