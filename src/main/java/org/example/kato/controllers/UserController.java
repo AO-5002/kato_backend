@@ -20,13 +20,8 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping
-    public String sayHi() {
-        return "Hello World!";
-    }
-
     @PostMapping
-    private ResponseEntity<Void> createUser(@RequestBody @Valid CreateUserDto newUser, Authentication auth) {
+    private ResponseEntity<?> createUser(@RequestBody @Valid CreateUserDto newUser, Authentication auth) {
         String userAuth = auth.getName();
 
         userService.createUser(userAuth, newUser);
