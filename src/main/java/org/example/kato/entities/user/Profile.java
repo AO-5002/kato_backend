@@ -28,6 +28,9 @@ public class Profile {
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     private UUID id;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Column(name = "handle", unique = true, nullable = false)
     private String handle;
 

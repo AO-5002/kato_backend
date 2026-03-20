@@ -34,8 +34,12 @@ public class Post {
     private String abstractContent;
 
     @Column(name = "type", nullable = false)
-    private PostType type;
+    private PostStatus type;
 
+    @Column(
+            name = "created_at",
+            nullable = false
+    )
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     @CreationTimestamp
     private LocalDateTime createdAt;

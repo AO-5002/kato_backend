@@ -24,9 +24,6 @@ public class ProfileMedia {
     @Column(name = "s3_key", unique = true)
     private String s3Key;
 
-    @Column(name = "file_name", nullable = false)
-    private String fileName;
-
     // RELATIONAL MAPPINGS
 
     // ONE TO ONE: Profile - ProfileMedia (Profile Picture)
