@@ -11,5 +11,6 @@ public class ProfileSummaryDto {
     private UUID id;
     private String handle;
     private String name;
-    private String avatarS3Key;
+    private ProfileMediaDto avatar;
+    private ProfileMediaDto banner;
 }

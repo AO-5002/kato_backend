@@ -1,5 +1,6 @@
 package org.example.kato.mappers;
 
+import org.example.kato.dtos.user.ProfileMediaDto;
 import org.example.kato.dtos.user.ProfileSummaryDto;
 import org.example.kato.entities.user.Profile;
 import org.mapstruct.Mapper;
@@ -13,11 +14,14 @@ public class ProfileMapper {
                 .id(profile.getId())
                 .handle(profile.getHandle())
                 .name(profile.getName())
-                .avatarS3Key(
-                        profile.getProfileMedia() != null
-                                ? profile.getProfileMedia().getS3Key()
-                                : null
-                )
+                .avatar(profile.getProfileMedia() != null
+                        ? ProfileMediaDto.builder()
+                        .id(profile.getProfileMedia().getId())
+                        .profileId(profile.getId())
+                        .s3Key(profile.getProfileMedia().getS3Key())
+                        .build()
+                        : null)
+                .banner(null) // add banner entity/mapping later
                 .build();
     }
 }
