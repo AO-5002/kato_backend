@@ -24,9 +24,6 @@ public class PostMedia {
     @Column(name = "s3_key", unique = true)
     private String s3Key;
 
-    @Column(name = "file_name", nullable = false)
-    private String fileName;
-
     // RELATIONAL MAPPING
 
     // ONE TO ONE: Post - PostMedia (Post Thumbnail)

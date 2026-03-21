@@ -34,7 +34,7 @@ public class Post {
     private String abstractContent;
 
     @Column(name = "type", nullable = false)
-    private PostStatus type;
+    private PostType type;
 
     @Column(
             name = "created_at",
